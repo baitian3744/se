@@ -226,6 +226,10 @@ public class ModelApplet extends Applet{
 							printErr("failed to create substarModel");
 						}
 						
+						if(!substarModel.init()){
+							printErr("substarModel failed to init");
+						}
+						
 //						this.isInitialized = true;
 //						this.setlocation(null);
 //				        

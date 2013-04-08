@@ -32,14 +32,7 @@ public class SubstarModel extends ModelAbs{
 
 	@Override
 	public void render() {
-		GL11.glColor3f(0.5f, 0.5f, 0.5f);
-		GL11.glBegin(GL11.GL_QUADS);
-			GL11.glVertex2f(-100.0f, -100.0f);
-			GL11.glVertex2f(-100.0f, 100.0f);
-			GL11.glVertex2f(100.0f, 100.0f);
-			GL11.glVertex2f(100.0f, -100.0f);
-		GL11.glEnd();
-//		this.figure.draw();
+		this.figure.draw();
 		
 	}
 	
@@ -51,7 +44,3 @@ public class SubstarModel extends ModelAbs{
 		return new SubstarModel(filePath);
 	}
 }
-//System.out.println("this.config.getFileName:" + this.config.getFileName(0));
-//System.out.println("this.config.getPlotPointSize:" + this.config.getPlotPointSize());
-//System.out.println("this.config.getWindowHeight:" + this.config.getWindowHeight());
-//System.out.println("this.config.getWindowWidth:" + this.config.getWindowWidth());
