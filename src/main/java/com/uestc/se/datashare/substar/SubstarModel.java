@@ -25,6 +25,7 @@ public class SubstarModel extends ModelAbs{
 			if((url = createUrl(configSource)) == null){
 				return false;
 			}
+			// eg. http://localhost:8080/demo/config_default.xml
 			String configFileString = "http://"
 					+ url.getHost()
 					+ ":" 

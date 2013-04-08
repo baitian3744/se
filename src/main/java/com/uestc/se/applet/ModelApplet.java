@@ -229,23 +229,7 @@ public class ModelApplet extends Applet{
 						if(!substarModel.init()){
 							printErr("substarModel failed to init");
 						}
-						
-//						this.isInitialized = true;
-//						this.setlocation(null);
-//				        
-////						try {
-////							substarModel = new SubstarModel(this.location);
-////							substarModel.init();
-////							this.isInitialized = true;
-////							this.iAmReady();
-////						} catch (Exception e) {
-////							printErr("Unable to create SubstarModel or load data");
-////						}
-//					}else{
-//						this.location = null;
-//						this.isInitialized = false;
-//						printErr("file not existed");
-//						printErr("location = " + this.location);
+//						this.iAmReady();
 					}
 				}
 			}
