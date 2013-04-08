@@ -1,6 +1,7 @@
 package com.uestc.se.datashare.substar;
 
 import java.io.InputStream;
+import java.net.URL;
 
 import org.lwjgl.opengl.GL11;
 
@@ -14,15 +15,29 @@ public class SubstarModel extends ModelAbs{
 	private SubstarData data;
 	private SubstarFigure figure;
 	private String configSource;
+	
+	private final String webappString = "demo";
 
 	@Override
 	public boolean init() {
 		try {
-			InputStream in = ResourceLoader.getResourceAsStream("http://localhost:8080/demo/config_default.xml");
+			URL url;
+			if((url = createUrl(configSource)) == null){
+				return false;
+			}
+			String configFileString = "http://"
+					+ url.getHost()
+					+ ":" 
+					+ Integer.toString(url.getPort())
+					+ "/" 
+					+ webappString 
+					+ "/" 
+					+ "config_default.xml";
+			InputStream in = ResourceLoader.getResourceAsStream(configFileString);
 			if(in != null){
 				this.config = SubstarConfig.create(in);
 			}
-			this.data = SubstarData.create("http://localhost:8080/demo/FY1C/FY1C_SCI_SEM_L04_01M/1999/199905/FY1C_SCI_SEM_L04_01M_A0_19990519.txt.todzkd.txt", config);
+			this.data = SubstarData.create(configSource, config);
 			this.figure = new SubstarFigure(data, new Point(20.0f, 30.0f, 0.0f));
 			return true;
 		} catch (Exception e) {
@@ -42,5 +57,19 @@ public class SubstarModel extends ModelAbs{
 	
 	public static SubstarModel newInstance(String filePath){
 		return new SubstarModel(filePath);
+	}
+	
+	private URL createUrl(String urlString){
+		try {
+			URL url = new URL(urlString);
+			return url;
+		} catch (Exception e) {
+			printErr("Source path is not a url path in createData(), src = " + urlString);
+			return null;
+		}
+	}
+	
+	private void printErr(String errMsg){
+		System.out.println("Err@SubstarModel: " + errMsg);
 	}
 }

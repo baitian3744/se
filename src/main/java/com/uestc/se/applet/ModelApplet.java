@@ -398,20 +398,6 @@ public class ModelApplet extends Applet{
 	
 	public void setLocation(String location){
 		this.setlocation(location);
-//		URL url;
-//		try {
-//			url = new URL(location);
-//			this.hostString = url.getHost();
-//			this.portString = Integer.toString(url.getPort());
-//		} catch (MalformedURLException e) {
-//			e.printStackTrace();
-//		}
-//		webappHead = "http://" + hostString
-//				+ "/"
-//				+ ":"
-//				+ portString
-//				+ "//"
-//				+ webappString;
 	}
 	
 	private void iAmReady(){
@@ -422,36 +408,3 @@ public class ModelApplet extends Applet{
 		System.out.println("Err@SubstarData: " + errMsg);
 	}
 }
-
-
-//for(int i = 0; i < 100; i++){
-//ResourceLoader.resourceExists(this.location);
-//printErr("after check resource, file exist, slocation = " + this.location);
-//}
-//this.isInitialized = true;
-
-
-//URL url;
-//URLConnection urlCon;
-//BufferedReader bufReader;
-//try {
-//	url = new URL(location);
-//	urlCon = url.openConnection();
-//	urlCon.setReadTimeout(1000);
-//	bufReader = new BufferedReader(
-//			new InputStreamReader(
-//					urlCon.getInputStream())
-//			);
-//	String inputLine;
-//	try {
-//		while ((inputLine = bufReader.readLine()) != null) 
-//		    System.out.println(inputLine);
-//		bufReader.close();
-//	} catch (IOException e) {
-//		e.printStackTrace();
-//		this.isInitialized = true;
-//	}
-//} catch (Exception e) {
-//	e.printStackTrace();
-//	System.exit(0);
-//}
