@@ -2,7 +2,7 @@ package com.uestc.se.applet;
 
 public interface Model {
 	
-	void init();
+	boolean init();
 	
 	void render();
 	

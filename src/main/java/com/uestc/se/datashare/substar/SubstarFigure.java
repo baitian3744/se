@@ -65,10 +65,10 @@ public class SubstarFigure extends CompositGraphic{
 		this.add(new DashLineGraphic(new Point(0.0f, 180.0f, 0.0f), new Point(360.0f, 180.0f, 0.0f), Color.black, 10.0f));
 		this.add(new SolidLineGraphic(new Point(360.0f, 0.0f, 0.0f), new Point(360.0f, 180.0f, 0.0f), Color.black));
 		
-		this.add(new TextureGraphic(new Point(0.0f, 0.0f, 0.0f), 
-				new Point(360.0f, 180.0f, 0.0f), 
-				this.data.getBackgroundTexture())
-				);
+//		this.add(new TextureGraphic(new Point(0.0f, 0.0f, 0.0f), 
+//				new Point(360.0f, 180.0f, 0.0f), 
+//				this.data.getBackgroundTexture())
+//				);
 		
 	}
 	

@@ -216,39 +216,16 @@ public class ModelApplet extends Applet{
 			}
 			if(isDataAvailable()){
 				if(!isInitialized()){
-//					for(int i = 0; i < 100; i++){
-//						ResourceLoader.resourceExists(this.location);
-//						printErr("after check resource, file exist, slocation = " + this.location);
-//					}
-//					this.isInitialized = true;
+
 					if(ResourceLoader.resourceExists(location)){
 						printErr("file exist, location = " + location);
 						this.isInitialized = true;
 						
-						URL url;
-						URLConnection urlCon;
-						BufferedReader bufReader;
-						try {
-							url = new URL(location);
-							urlCon = url.openConnection();
-							urlCon.setReadTimeout(1000);
-							bufReader = new BufferedReader(
-									new InputStreamReader(
-											urlCon.getInputStream())
-									);
-							String inputLine;
-							try {
-								while ((inputLine = bufReader.readLine()) != null) 
-								    System.out.println(inputLine);
-								bufReader.close();
-							} catch (IOException e) {
-								e.printStackTrace();
-								this.isInitialized = true;
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-							System.exit(0);
+						this.substarModel = SubstarModel.newInstance(location);
+						if(substarModel == null){
+							printErr("failed to create substarModel");
 						}
+						
 //						this.isInitialized = true;
 //						this.setlocation(null);
 //				        
@@ -350,9 +327,9 @@ public class ModelApplet extends Applet{
 //		this.macroCommand.add(new ModelActionZoom(this.zoom));
 //		this.macroCommand.add(new OrbActionRotate(this.earth, this.angle));
 //		this.macroCommand.execute();
-//		if(isInitialized()){
-//			this.substarModel.render();
-//		}
+		if(isInitialized()){
+			this.substarModel.render();
+		}
 		
 		glPopMatrix();
 	}
@@ -441,3 +418,36 @@ public class ModelApplet extends Applet{
 		System.out.println("Err@SubstarData: " + errMsg);
 	}
 }
+
+
+//for(int i = 0; i < 100; i++){
+//ResourceLoader.resourceExists(this.location);
+//printErr("after check resource, file exist, slocation = " + this.location);
+//}
+//this.isInitialized = true;
+
+
+//URL url;
+//URLConnection urlCon;
+//BufferedReader bufReader;
+//try {
+//	url = new URL(location);
+//	urlCon = url.openConnection();
+//	urlCon.setReadTimeout(1000);
+//	bufReader = new BufferedReader(
+//			new InputStreamReader(
+//					urlCon.getInputStream())
+//			);
+//	String inputLine;
+//	try {
+//		while ((inputLine = bufReader.readLine()) != null) 
+//		    System.out.println(inputLine);
+//		bufReader.close();
+//	} catch (IOException e) {
+//		e.printStackTrace();
+//		this.isInitialized = true;
+//	}
+//} catch (Exception e) {
+//	e.printStackTrace();
+//	System.exit(0);
+//}
